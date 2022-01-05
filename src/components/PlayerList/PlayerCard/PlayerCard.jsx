@@ -1,4 +1,6 @@
 import "./player-card.css";
+import Image from "../../../core/Image/Image";
+import LazyLoad from "react-lazyload";
 
 const PlayerCard = ({ data, players }) => {
   let UTCDate = `${data.UpComingMatchesList[0].MDate}  UTC`;
@@ -16,12 +18,12 @@ const PlayerCard = ({ data, players }) => {
     <>
       <div className='card__container'>
         <div className='card__image'>
-          <img
-            src={require(`../../../assets/player-images/${data.Id}.jpg`)}
-            width={"294"}
-            height={"294"}
-            alt='player'
-          />
+          <LazyLoad throttle={200} height={100}>
+            <Image
+              src={require(`../../../assets/player-images/${data.Id}.jpg`)}
+              alt='player'
+            />
+          </LazyLoad>
         </div>
         <div className='card__player-name'>
           <strong>{data.PFName}</strong>

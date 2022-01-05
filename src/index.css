@@ -21,6 +21,9 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-color: #f2eaed;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
 }
 
 img,

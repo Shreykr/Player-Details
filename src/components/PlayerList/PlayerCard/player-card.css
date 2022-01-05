@@ -1,13 +1,14 @@
 .card__container {
   display: flex;
   flex-flow: column nowrap;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border-radius: 10px;
   background: #f2eaed;
   box-shadow: 6px 6px 17px #a9a4a6, -6px -6px 17px #ffffff;
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5vh;
 }
 
 .card__image > img {
@@ -35,7 +36,12 @@
   font-size: clamp(0.85rem, 2vw, 1.05rem);
 }
 
+.card__details:last-child {
+  margin-bottom: 15px;
+}
+
 .card__match-time {
   letter-spacing: 1px;
   font-size: clamp(0.75rem, 2vw, 1rem);
+  margin-bottom: 35px;
 }

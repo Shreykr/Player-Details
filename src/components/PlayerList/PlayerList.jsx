@@ -39,9 +39,13 @@ const PlayerList = () => {
           />
         </div>
         <div className='player-container'>
-          {sortedPlayerInfo.map((player, index) => {
-            return <PlayerCard key={index} data={player} />;
-          })}
+          {sortedPlayerInfo.length !== 0 ? (
+            sortedPlayerInfo.map((player, index) => {
+              return <PlayerCard key={index} data={player} />;
+            })
+          ) : (
+            <div className='player-not-found'>No Player Found</div>
+          )}
         </div>
       </div>
     </>

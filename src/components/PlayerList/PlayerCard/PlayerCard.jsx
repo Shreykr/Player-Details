@@ -1,6 +1,6 @@
 import "./player-card.css";
 
-const PlayerCard = ({ data }) => {
+const PlayerCard = ({ data, players }) => {
   let UTCDate = `${data.UpComingMatchesList[0].MDate}  UTC`;
   let localDate = new Date(UTCDate);
 
@@ -18,6 +18,8 @@ const PlayerCard = ({ data }) => {
         <div className='card__image'>
           <img
             src={require(`../../../assets/player-images/${data.Id}.jpg`)}
+            width={"294"}
+            height={"294"}
             alt='player'
           />
         </div>
@@ -44,4 +46,5 @@ const PlayerCard = ({ data }) => {
     </>
   );
 };
+
 export default PlayerCard;

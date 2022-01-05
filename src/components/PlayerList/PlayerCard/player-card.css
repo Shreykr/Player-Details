@@ -13,6 +13,7 @@
 .card__image > img {
   border-radius: 10px;
   box-shadow: 5px 5px 15px #a9a4a6, -5px -5px 15px #ffffff;
+  height: auto;
 }
 
 .card__player-name {

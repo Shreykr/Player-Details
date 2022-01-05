@@ -1,4 +1,4 @@
-# Coupon Validator
+# Player Details
 
 A web app to fetch and display player details.
 
@@ -40,7 +40,7 @@ You need to have or install the following:
 - Create a `.env` file with this template at the root of your project
 
   ```
-  REACT_APP_API_URL =  https://api.npoint.io
+  REACT_APP_API_URL =  https://api.npoint.io/20c1afef1661881ddc9c
   ```
 
 - Start app

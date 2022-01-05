@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.main-container {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1.5rem, 5vw, 2.75rem);
+  font-family: "Montserrat", sans-serif;
+}
+
+.search {
+  width: 100%;
+}
+
+input.search-input {
+  background-color: #f5f3f3;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-radius: 0.25rem;
+  padding: clamp(0.5rem, 2vw, 0.85rem);
+  border: 1px solid black;
+  width: 100%;
+  font-size: clamp(1rem, 2vw, 1.75rem);
+}
+
+input.search-input:focus {
+  outline: none;
+}
+
+.player-container {
+  margin-top: 40px;
+}

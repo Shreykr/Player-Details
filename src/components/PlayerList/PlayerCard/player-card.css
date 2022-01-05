@@ -1,0 +1,40 @@
+.card__container {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f2eaed;
+  box-shadow: 6px 6px 17px #a9a4a6, -6px -6px 17px #ffffff;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__image > img {
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #a9a4a6, -5px -5px 15px #ffffff;
+}
+
+.card__player-name {
+  margin-top: 20px;
+  text-align: center;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.card__details > * {
+  margin-top: 15px;
+}
+
+.card__details {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: left;
+  width: 100%;
+  margin-top: 10px;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+}
+
+.card__match-time {
+  letter-spacing: 1px;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+}

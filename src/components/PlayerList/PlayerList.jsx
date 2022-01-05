@@ -1,17 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import playerDetailsService from "../../services/http/PlayerDetails";
-import "./player-list.css";
 import PlayerCard from "./PlayerCard/PlayerCard";
+import Spinner from "../../core/Spinner/Spinner";
+import "./player-list.css";
 
 const PlayerList = () => {
+  // state and ref variables
   let [playerInfo, setPlayerInfo] = useState([]);
   let [searchPlayerTeam, setSearchPlayerTeam] = useState("");
+  let firstLoad = useRef(true);
+
   let sortedPlayerInfo = [];
 
+  // fetching player details
   useEffect(() => {
-    playerDetailsService("get-details", setPlayerInfo);
+    setTimeout(() => {
+      playerDetailsService("get-details", setPlayerInfo);
+    }, 1000);
+    firstLoad.current = false;
   }, []);
 
+  // sorting player details by value and their name
   sortedPlayerInfo = playerInfo
     .filter(
       (ele) =>
@@ -23,10 +32,12 @@ const PlayerList = () => {
       return a.Value - b.Value || (a.PFName > b.PFName) - (a.PFName < b.PFName);
     });
 
+  // setting search string that is inputed by user
   const handleChange = (e) => {
     setSearchPlayerTeam(e.target.value);
   };
 
+  // rendering player details
   return (
     <>
       <div className='main-container'>
@@ -43,8 +54,14 @@ const PlayerList = () => {
             sortedPlayerInfo.map((player, index) => {
               return <PlayerCard key={index} data={player} />;
             })
+          ) : firstLoad.current ? (
+            <div className='player-not-found'>
+              <Spinner />
+            </div>
           ) : (
-            <div className='player-not-found'>No Player Found</div>
+            <div className='player-not-found'>
+              <strong>No Player(s) Found</strong> 😥
+            </div>
           )}
         </div>
       </div>

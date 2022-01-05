@@ -1,16 +1,19 @@
-import "./player-card.css";
 import Image from "../../../core/Image/Image";
 import LazyLoad from "react-lazyload";
+import "./player-card.css";
 
 const PlayerCard = ({ data, players }) => {
+  // converting UTC datetime to local datetime
   let UTCDate = `${data.UpComingMatchesList[0].MDate}  UTC`;
   let localDate = new Date(UTCDate);
 
+  // conditionally setting next match status
   let nextMatchStatus = !data.UpComingMatchesList[0].CCode
     ? `N/A`
     : `${data.UpComingMatchesList[0].CCode} vs.
   ${data.UpComingMatchesList[0].VsCCode}`;
 
+  // conditionally setting next match time
   let matchTime =
     nextMatchStatus === "N/A" ? "N/A" : localDate.toLocaleString();
 
@@ -18,7 +21,7 @@ const PlayerCard = ({ data, players }) => {
     <>
       <div className='card__container'>
         <div className='card__image'>
-          <LazyLoad throttle={200} height={100}>
+          <LazyLoad throttle={100} height={100}>
             <Image
               src={require(`../../../assets/player-images/${data.Id}.jpg`)}
               alt='player'
@@ -35,7 +38,6 @@ const PlayerCard = ({ data, players }) => {
           <div className='card__details-value'>
             <strong>Value:</strong> ${data.Value}
           </div>
-
           <div className='card__details-value'>
             <strong>Next Match:</strong> {nextMatchStatus}
           </div>

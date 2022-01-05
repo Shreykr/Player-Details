@@ -26,19 +26,12 @@ body {
   min-height: 100vh;
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
+img {
   display: block;
   max-width: 100%;
 }
 
-input,
-button,
-textarea,
-select {
+input {
   font: inherit;
 }
 
@@ -50,9 +43,4 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
-}
-
-#root,
-#__next {
-  isolation: isolate;
 }

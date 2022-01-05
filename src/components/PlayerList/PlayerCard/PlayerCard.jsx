@@ -21,9 +21,11 @@ const PlayerCard = ({ data, players }) => {
     <>
       <div className='card__container'>
         <div className='card__image'>
-          <LazyLoad throttle={100} height={100}>
+          <LazyLoad throttle={100} height={324}>
             <Image
               src={require(`../../../assets/player-images/${data.Id}.jpg`)}
+              width={"324"}
+              height={"324"}
               alt='player'
             />
           </LazyLoad>

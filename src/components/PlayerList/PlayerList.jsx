@@ -8,6 +8,7 @@ const PlayerList = () => {
   // state and ref variables
   let [playerInfo, setPlayerInfo] = useState([]);
   let [searchPlayerTeam, setSearchPlayerTeam] = useState("");
+  let [loadingStatus, setLoadingStatus] = useState(false);
   let firstLoad = useRef(true);
 
   let sortedPlayerInfo = [];
@@ -17,6 +18,10 @@ const PlayerList = () => {
     setTimeout(() => {
       playerDetailsService("get-details", setPlayerInfo);
     }, 1000);
+
+    setTimeout(() => {
+      setLoadingStatus(true);
+    }, 2500);
     firstLoad.current = false;
   }, []);
 
@@ -54,9 +59,13 @@ const PlayerList = () => {
             sortedPlayerInfo.map((player, index) => {
               return <PlayerCard key={index} data={player} />;
             })
-          ) : firstLoad.current ? (
-            <div className='player-not-found'>
+          ) : firstLoad.current && loadingStatus === false ? (
+            <div className='player-spinner'>
               <Spinner />
+            </div>
+          ) : loadingStatus === true && playerInfo.length === 0 ? (
+            <div className='player-not-found'>
+              <strong>Failed fetching details</strong> 😥
             </div>
           ) : (
             <div className='player-not-found'>

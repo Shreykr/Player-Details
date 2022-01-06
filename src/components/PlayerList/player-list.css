@@ -54,6 +54,7 @@ input.search-input:focus {
   align-items: center;
 }
 
-.player-not-found {
+.player-not-found,
+.player-spinner {
   font-size: clamp(1rem, 2vw, 1.75rem);
 }

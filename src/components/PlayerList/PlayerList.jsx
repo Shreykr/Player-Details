@@ -21,7 +21,7 @@ const PlayerList = () => {
 
     setTimeout(() => {
       setLoadingStatus(true);
-    }, 2500);
+    }, 3300);
     firstLoad.current = false;
   }, []);
 
